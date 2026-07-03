@@ -32,7 +32,8 @@ jobs:
         run: bash ./scripts/validate.sh
 
       - name: Package dry run
-        run: bash ./scripts/package.sh dist
+        shell: pwsh
+        run: ./scripts/package.ps1 -OutDir dist
 
       - name: Upload CI package artifacts
         uses: actions/upload-artifact@v4
@@ -64,27 +65,3 @@ jobs:
       - name: Analyze
         uses: github/codeql-action/analyze@v3
 
-  ossf-scorecard:
-    name: OSSF Scorecard
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      contents: read
-      id-token: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Run Scorecard
-        uses: ossf/scorecard-action@v2.4.0
-        with:
-          results_file: scorecard.sarif
-          results_format: sarif
-          publish_results: true
-
-      - name: Upload SARIF
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: scorecard.sarif
