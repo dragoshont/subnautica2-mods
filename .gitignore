@@ -1,0 +1,14 @@
+# Build outputs
+/dist/
+**/bin/
+**/obj/
+*.zip
+*.tar.gz
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/
+
+# Local scratch
+/tmp/

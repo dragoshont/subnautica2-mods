@@ -1,0 +1,23 @@
+{
+  "mods": [
+    {
+      "id": "NeverNight",
+      "name": "NeverNight",
+      "version": "0.1.0",
+      "loader": "UE4SS",
+      "game": "Subnautica 2",
+      "entry": "NeverNight/Scripts/main.lua",
+      "commands": [
+        "day",
+        "nevernight_on",
+        "nevernight_off",
+        "nevernight_status",
+        "stats",
+        "stats_100",
+        "sn2_stats",
+        "survival_guard_10s",
+        "sn2_help"
+      ]
+    }
+  ]
+}
